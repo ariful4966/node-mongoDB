@@ -8,13 +8,13 @@ var app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-const userId = process.env.DB_USER;
-const pass = process.env.DB_PASS;
+// const userId = process.env.DB_USER;
+// const pass = process.env.DB_PASS;
 
 
 
 //MongoDB URI
-const uri = `mongodb+srv://${userId}:${pass}@cluster0-do5kc.mongodb.net/test?retryWrites=true&w=majority`;
+const uri = process.env.DB_PATH;
 let client = new MongoClient(uri, { useNewUrlParser: true });
 
 //users
